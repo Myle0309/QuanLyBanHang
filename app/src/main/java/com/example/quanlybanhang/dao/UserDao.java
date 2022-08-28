@@ -91,6 +91,22 @@ public class UserDao {
                 new String[]{username});
     }
 
+    public int update(String username, User user) {
+        db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("maNV", user.getPassword());
+        values.put("hoTen", user.getPassword());
+        values.put("phai", user.getPassword());
+        values.put("ngaySinh", user.getPassword());
+        values.put("dienThoai", user.getPassword());
+        Department department = user.getPhong();
+        values.put("phong", new Gson().toJson(department));
+
+        // updating row
+        return db.update(TABLE_NAME, values, "userName = ?",
+                new String[]{username});
+    }
+
     public int deleteUserByID(String username) {
         int result = db.delete(TABLE_NAME, "userName=?", new String[]{username});
         if (result == 0)

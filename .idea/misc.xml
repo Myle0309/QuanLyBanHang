@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_change_password.xml" value="0.1" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_home.xml" value="0.2375" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_main.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_thong_tin_nhanvien.xml" value="0.2" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/bottom_sheet_register.xml" value="0.2" />
       </map>
     </option>
