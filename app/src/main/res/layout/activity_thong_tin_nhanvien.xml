@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:layout_marginTop="37dp"
-            android:text="Mã Phòng ban:"
+            android:text="Đia chỉ: "
             android:textColor="@color/black"
 
             app:layout_constraintStart_toStartOf="parent"
@@ -148,7 +148,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView14" />
 
         <EditText
-            android:id="@+id/edtMaPhongBan"
+            android:id="@+id/edtDiaChi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -161,26 +161,26 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:layout_marginTop="37dp"
-            android:text="Tên Phòng:"
+            android:text="Email:"
             android:textColor="@color/black"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtMaPhongBan" />
+            app:layout_constraintTop_toBottomOf="@+id/edtDiaChi" />
 
         <EditText
-            android:id="@+id/edtTenPhong"
+            android:id="@+id/edtEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            app:layout_constraintStart_toStartOf="@+id/edtMaPhongBan"
+            app:layout_constraintStart_toStartOf="@+id/edtDiaChi"
             app:layout_constraintTop_toTopOf="@+id/textView16" />
 
         <Button
-            android:id="@+id/btnCapNhap"
+            android:id="@+id/btnThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#871D0D"
-            android:text="CẬP NHẬP"
+            android:text="Thêm"
             android:textColorHighlight="@android:color/holo_orange_light"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -196,11 +196,10 @@
             android:layout_marginTop="41dp"
             android:backgroundTint="#871D0D"
             android:text="HỦY"
-
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/edtTenPhong"
-            app:layout_constraintTop_toBottomOf="@+id/edtTenPhong" />
+            app:layout_constraintStart_toStartOf="@+id/edtEmail"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

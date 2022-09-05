@@ -20,7 +20,6 @@ import com.google.gson.Gson;
 
 public class Login extends AppCompatActivity implements BottomSheetRegister.ICallbackRegister {
 
-
     private EditText edtUsername;
     private EditText edtPassword;
     private CheckBox cbRemember;

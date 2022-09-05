@@ -9,7 +9,6 @@ import android.util.Log;
 
 import com.example.quanlybanhang.database.DatabaseHelper;
 import com.example.quanlybanhang.model.Bill;
-import com.example.quanlybanhang.model.Department;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

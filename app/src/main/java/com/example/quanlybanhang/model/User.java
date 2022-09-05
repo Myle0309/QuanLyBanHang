@@ -9,22 +9,27 @@ public class User {
     private String phai = "";
     private String ngaySinh = "";
     private String dienThoai = "";
-    private Department phong = null;
+    private String diachi = "";
+    private String email = "";
     private Role role = Role.STAFF;
 
-    public User(){}
-
-    public User(String userName, String password, String hoTen, String dienThoai) {
-        this.userName = userName;
-        this.password = password;
-        this.hoTen = hoTen;
-        this.dienThoai = dienThoai;
+    public String getDiachi() {
+        return diachi;
     }
 
-    public User(
-            String userName,
-            String password,
-            String maNV, String hoTen, String phai, String ngaySinh, String dienThoai, Department phong, Role role) {
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User(String userName, String password, String maNV, String hoTen, String phai, String ngaySinh, String dienThoai, String diachi, String email, Role role) {
         this.userName = userName;
         this.password = password;
         this.maNV = maNV;
@@ -32,8 +37,19 @@ public class User {
         this.phai = phai;
         this.ngaySinh = ngaySinh;
         this.dienThoai = dienThoai;
-        this.phong = phong;
+        this.diachi = diachi;
+        this.email = email;
         this.role = role;
+    }
+
+    public User() {
+    }
+
+    public User(String userName, String password, String hoTen, String dienThoai) {
+        this.userName = userName;
+        this.password = password;
+        this.hoTen = hoTen;
+        this.dienThoai = dienThoai;
     }
 
     public String getUserName() {
@@ -92,13 +108,6 @@ public class User {
         this.dienThoai = dienThoai;
     }
 
-    public Department getPhong() {
-        return phong;
-    }
-
-    public void setPhong(Department phong) {
-        this.phong = phong;
-    }
 
     public Role getRole() {
         return role;

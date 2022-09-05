@@ -13,7 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QUANLYBANHANG"
         tools:targetApi="31">
-
+        <activity
+            android:name=".BaoCaoThongKe"
+            android:exported="false" />
+        <activity
+            android:name=".ThemSanPham"
+            android:exported="false" />
+        <activity
+            android:name=".QuanLySanPham"
+            android:exported="false" />
+        <activity
+            android:name=".ThemKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".QuanLyKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".ChiTietNguoiDungActivity"
+            android:exported="false"
+            android:parentActivityName=".QuanLyNhanVienActivity" />
+        <activity
+            android:name=".QuanLyNhanVienActivity"
+            android:exported="false" />
         <activity
             android:name=".ManHinhChaoActivity"
             android:exported="true">

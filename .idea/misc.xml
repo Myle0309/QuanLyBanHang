@@ -3,13 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/drawable-v24/thoatlogo.xml" value="0.1" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_change_password.xml" value="0.1" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_chi_tiet_nguoi_dung.xml" value="0.2375" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_home.xml" value="0.2375" />
-        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_login.xml" value="0.176" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_main.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_quan_ly_khach_hang.xml" value="0.2234375" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_quan_ly_nhan_vien.xml" value="0.2375" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_quan_ly_san_pham.xml" value="0.2375" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_them_khach_hang.xml" value="0.2234375" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_them_san_pham.xml" value="0.2234375" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/activity_thong_tin_nhanvien.xml" value="0.2" />
         <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/bottom_sheet_register.xml" value="0.2" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/layout/customuser.xml" value="0.2" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/menu/khachhang.xml" value="0.2375" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/menu/optionnguoidung.xml" value="0.1" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/menu/sanpham.xml" value="0.2375" />
+        <entry key="..\:/Users/Win10/OneDrive - VLG/Desktop/QuanLyBanHang/app/src/main/res/menu/themnv.xml" value="0.13072916666666667" />
       </map>
     </option>
   </component>

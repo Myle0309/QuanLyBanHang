@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.quanlybanhang.dao.UserDao;
-import com.example.quanlybanhang.model.Department;
 import com.example.quanlybanhang.model.User;
 import com.google.gson.Gson;
 
@@ -24,9 +23,9 @@ public class ThongTinNhanvien extends AppCompatActivity {
     UserDao userDao;
     private SharedPreferences pref;
 
-    View btnCapNhap;
+    View btnThem;
     View Huy;
-    EditText edtmaNV, edthoTen, edtphai, edtngaySinh, edtdienThoai, edtMaPhongBan, edtTenPhong;
+    EditText edtmaNV, edthoTen, edtphai, edtngaySinh, edtdienThoai, edtDiaChi, edtEmail;
     User user;
 
 
@@ -38,42 +37,36 @@ public class ThongTinNhanvien extends AppCompatActivity {
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         user = userDao.getUser(new Gson().fromJson(pref.getString(Constant.KEY_USER, ""), User.class).getUserName());
         initView();
-        fillData();
-        btnCapNhap.setOnClickListener(v -> {
+        btnThem.setOnClickListener(v -> {
             if (validateForm() > 0) {
-                user.setMaNV(edthoTen.getText().toString());
+                user.setMaNV(edtmaNV.getText().toString());
                 user.setHoTen(edthoTen.getText().toString());
-                user.setPhai(edthoTen.getText().toString());
-                user.setNgaySinh(edthoTen.getText().toString());
-                user.setDienThoai(edthoTen.getText().toString());
-                user.setPhong(new Department(
-                        edtMaPhongBan.getText().toString(),
-                        edtmaNV.getText().toString(),
-                        edtTenPhong.getText().toString()
-                ));
-                userDao.update(user.getUserName(), user);
+                user.setPhai(edtphai.getText().toString());
+                user.setNgaySinh(edtngaySinh.getText().toString());
+                user.setDienThoai(edtdienThoai.getText().toString());
+                user.setEmail(edtEmail.getText().toString());
+                user.setDiachi(edtDiaChi.getText().toString());
+                userDao.insertUser(user);
                 pref.edit().putString(Constant.KEY_USER, new Gson().toJson(user)).commit();
-                Toast.makeText(getApplicationContext(), "Cập nhập thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
-    }
-
-    private void fillData() {
-        edthoTen.setText(user.getHoTen());
-        edtdienThoai.setText(user.getDienThoai());
+        Huy.setOnClickListener(v -> {
+            startActivity(new Intent(ThongTinNhanvien.this,QuanLyNhanVienActivity.class));
+        });
     }
 
     private void initView() {
-        btnCapNhap = findViewById(R.id.btnCapNhap);
+        btnThem = findViewById(R.id.btnThem);
         Huy = findViewById(R.id.Huy);
         edtmaNV = findViewById(R.id.edtmaNV);
         edthoTen = findViewById(R.id.edthoTen);
         edtphai = findViewById(R.id.edtphai);
         edtngaySinh = findViewById(R.id.edtngaySinh);
         edtdienThoai = findViewById(R.id.edtdienThoai);
-        edtMaPhongBan = findViewById(R.id.edtMaPhongBan);
-        edtTenPhong = findViewById(R.id.edtTenPhong);
+        edtDiaChi = findViewById(R.id.edtDiaChi);
+        edtEmail = findViewById(R.id.edtEmail);
         edtngaySinh.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -91,8 +84,8 @@ public class ThongTinNhanvien extends AppCompatActivity {
                 || edtphai.getText().length() == 0
                 || edtngaySinh.getText().length() == 0
                 || edtdienThoai.getText().length() == 0
-                || edtMaPhongBan.getText().length() == 0
-                || edtTenPhong.getText().length() == 0
+                || edtDiaChi.getText().length() == 0
+                || edtEmail.getText().length() == 0
         ) {
             Toast.makeText(getApplicationContext(), "Bạn phải nhập đủ thông tin", Toast.LENGTH_SHORT).show();
             check = -1;

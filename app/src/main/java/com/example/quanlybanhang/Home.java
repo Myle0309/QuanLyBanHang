@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.quanlybanhang.dao.BillDao;
-import com.example.quanlybanhang.dao.DepartmentDao;
 import com.example.quanlybanhang.dao.ProductDao;
 import com.example.quanlybanhang.dao.UserDao;
 
@@ -17,7 +16,6 @@ public class Home extends AppCompatActivity {
 
     UserDao userDao;
     ProductDao productDao;
-    DepartmentDao departmentDao;
     BillDao billDao;
 
     @Override
@@ -27,7 +25,6 @@ public class Home extends AppCompatActivity {
 
         userDao = new UserDao(getApplicationContext());
         productDao = new ProductDao(getApplicationContext());
-        departmentDao = new DepartmentDao(getApplicationContext());
         billDao = new BillDao(getApplicationContext());
 
         updateNhanVien();
@@ -47,11 +44,24 @@ public class Home extends AppCompatActivity {
                 builder.show();
             }
         });
+        findViewById(R.id.btnQuanLyKH).setOnClickListener(v -> {
+            Intent c = new Intent(Home.this, QuanLyKhachHang.class);
+            startActivity(c);
+        });
+
+        findViewById(R.id.btnQuanLySp).setOnClickListener(v -> {
+            Intent c = new Intent(Home.this, QuanLySanPham.class);
+            startActivity(c);
+        });
+        findViewById(R.id.baocaothongke).setOnClickListener(v -> {
+            Intent c = new Intent(Home.this, BaoCaoThongKe.class);
+            startActivity(c);
+        });
     }
 
     private void updateNhanVien() {
-        findViewById(R.id.btnUpdateNhanVien).setOnClickListener(v -> {
-            Intent c = new Intent(Home.this, ThongTinNhanvien.class);
+        findViewById(R.id.btnQuanLyNhanVien).setOnClickListener(v -> {
+            Intent c = new Intent(Home.this, QuanLyNhanVienActivity.class);
             startActivity(c);
         });
     }

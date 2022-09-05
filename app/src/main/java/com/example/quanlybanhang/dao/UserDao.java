@@ -8,17 +8,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.quanlybanhang.database.DatabaseHelper;
-import com.example.quanlybanhang.model.Department;
 import com.example.quanlybanhang.model.Role;
 import com.example.quanlybanhang.model.User;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
     public static final String SQL_NGUOI_DUNG = "CREATE TABLE  User(userName text, password text, maNV " +
-            "text primary key, hoten text,phai text ,ngaySinh text ,dienThoai text,phong text, role text);";
+            "text primary key, hoten text,phai text ,ngaySinh text ,dienThoai text, role text,diachi text, email text);";
     public static final String TABLE_NAME = "User";
 
     private SQLiteDatabase db;
@@ -44,8 +42,9 @@ public class UserDao {
         values.put("phai", user.getPhai());
         values.put("ngaySinh", user.getNgaySinh());
         values.put("dienThoai", user.getDienThoai());
-        values.put("phong", new Gson().toJson(user.getPhong()));
         values.put("role", user.getRole().name());
+        values.put("diachi", user.getDiachi());
+        values.put("email", user.getEmail());
         try {
             if (db.insert(TABLE_NAME, null, values) == -1) {
                 return -1;
@@ -69,8 +68,9 @@ public class UserDao {
             ee.setPhai(c.getString(4));
             ee.setNgaySinh(c.getString(5));
             ee.setDienThoai(c.getString(6));
-            ee.setPhong(new Gson().fromJson(c.getString(7), Department.class));
-            ee.setRole(c.getString(8).equals(Role.CLIENT.name()) ? Role.CLIENT : Role.STAFF);
+            ee.setRole(c.getString(7).equals(Role.CLIENT.name()) ? Role.CLIENT : Role.STAFF);
+            ee.setDiachi(c.getString(8));
+            ee.setEmail(c.getString(9));
             dsNguoiDung.add(ee);
             Log.d("//======", ee.toString());
             c.moveToNext();
@@ -91,24 +91,23 @@ public class UserDao {
                 new String[]{username});
     }
 
-    public int update(String username, User user) {
+    public int update(String maNV, User user) {
         db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("maNV", user.getPassword());
-        values.put("hoTen", user.getPassword());
-        values.put("phai", user.getPassword());
-        values.put("ngaySinh", user.getPassword());
-        values.put("dienThoai", user.getPassword());
-        Department department = user.getPhong();
-        values.put("phong", new Gson().toJson(department));
-
+        values.put("maNV", user.getMaNV());
+        values.put("hoTen", user.getHoTen());
+        values.put("phai", user.getPhai());
+        values.put("ngaySinh", user.getNgaySinh());
+        values.put("dienThoai", user.getDienThoai());
+        values.put("diachi", user.getDiachi());
+        values.put("email", user.getEmail());
         // updating row
-        return db.update(TABLE_NAME, values, "userName = ?",
-                new String[]{username});
+        return db.update(TABLE_NAME, values, "maNV = ?",
+                new String[]{maNV});
     }
 
-    public int deleteUserByID(String username) {
-        int result = db.delete(TABLE_NAME, "userName=?", new String[]{username});
+    public int deleteUserByID(String maNV) {
+        int result = db.delete(TABLE_NAME, "maNV=?", new String[]{maNV});
         if (result == 0)
             return -1;
         return 1;
@@ -123,7 +122,7 @@ public class UserDao {
 
         // Truyen vao Ten bang, array bao gom ten cot, ten cot khoa chinh, gia tri khoa chinh, cac tham so con lai la null
 
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"userName", "password", "maNV", "hoten ", "phai", "ngaySinh", "dienThoai", "phong", "role"}, "userName=?", new String[]{username}, null, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"userName", "password", "maNV", "hoten ", "phai", "ngaySinh", "dienThoai", "role","diachi","email"}, "userName=?", new String[]{username}, null, null, null, null);
 
         // moveToFirst : kiem tra xem cursor co chua du lieu khong, ham nay tra ve gia tri la true or false
         if (cursor != null && cursor.moveToFirst()) {
@@ -138,11 +137,11 @@ public class UserDao {
             @SuppressLint("Range") String phai = cursor.getString(cursor.getColumnIndex("phai"));
             @SuppressLint("Range") String ngaySinh = cursor.getString(cursor.getColumnIndex("ngaySinh"));
             @SuppressLint("Range") String dienThoai = cursor.getString(cursor.getColumnIndex("dienThoai"));
-            @SuppressLint("Range") Department department = new Gson().fromJson(cursor.getString(cursor.getColumnIndex("phong")), Department.class);
             @SuppressLint("Range") Role role = cursor.getString(cursor.getColumnIndex("role")).equals(Role.CLIENT) ? Role.CLIENT : Role.STAFF;
-
+            @SuppressLint("Range") String diachi = cursor.getString(cursor.getColumnIndex("diachi"));
+            @SuppressLint("Range") String email = cursor.getString(cursor.getColumnIndex("email"));
             // khoi tao user voi cac gia tri lay duoc
-            user = new User(userName, password, maNV, hoTen, phai, ngaySinh, dienThoai, department, role);
+            user = new User(userName, password, maNV, hoTen, phai, ngaySinh, dienThoai, diachi, email, role);
         }
         cursor.close();
         return user;
